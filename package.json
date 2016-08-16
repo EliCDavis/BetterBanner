@@ -1,0 +1,29 @@
+{
+  "name": "BetterBanner",
+  "version": "1.0.0",
+  "keywords": [
+    "util",
+    "functional",
+    "chrome",
+    "client",
+    "browser"
+  ],
+  "author": "Eli",
+  "contributors": [],
+  "dependencies": {
+    "angular-aria": "^1.5.7",
+    "angular-material": "^1.1.0-rc.5",
+    "browserify": "~4.2.0",
+    "browserify-ngannotate": "^2.0.0",
+    "gulp": "~3.8.5",
+    "gulp-concat": "^2.6.0",
+    "gulp-notify": "~1.4.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-replace": "^0.5.4",
+    "gulp-streamify": "^1.0.2",
+    "gulp-uglify": "^1.5.4",
+    "gulp-util": "~2.2.19",
+    "vinyl-source-stream": "~0.1.1",
+    "watchify": "~0.10.2"
+  }
+}

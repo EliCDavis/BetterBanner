@@ -45,3 +45,10 @@ $RECYCLE.BIN/
 Network Trash Folder
 Temporary Items
 .apdisk
+
+nbproject
+nbproject\*
+
+node_modules
+node_modules\*
+node_modules/*
