@@ -24,6 +24,11 @@
 
 
 module.exports = {
+    sidebar: {
+        classroom: "https://my.msstate.edu/web/home-community/classroom#",
+        mail: "https://mail.google.com/a/msstate.edu",
+        banner: "https://my.msstate.edu/web/home-community/banner"
+    },
     banner: [
         {
             name: "Billing Statement",
