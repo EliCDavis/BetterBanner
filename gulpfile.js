@@ -27,16 +27,16 @@ function handleErrors() {
 
 // Based on: http://blog.avisi.nl/2014/04/25/how-to-keep-a-fast-build-with-browserify-and-reactjs/
 function buildScript(file, watch, minify) {
-    
+
     minify = minify || false;
-    
+
     var fileContent = fs.readFileSync("chrome-extension/inject.html", "utf8");
-    
+
     // Gulp replace doesn't like line breaks
-    fileContent = fileContent.replace(/(\r\n|\n|\r)/gm, "").replace('\t', '');
-    
+    fileContent = fileContent.replace(/(\r\n|\n|\r|\t)/gm, "");
+
     console.log(fileContent);
-    
+
     var props = {entries: [scriptsDir + '/' + file], debug: true, cache: {}, packageCache: {}};
     var bundler = watch ? watchify(browserify(props)) : browserify(props);
     bundler.transform(ngAnnotate);
@@ -56,7 +56,7 @@ function buildScript(file, watch, minify) {
                 .pipe(rename('inject.js'))
                 .pipe(gulp.dest(buildDir + '/'));
         }
-        
+
     }
     bundler.on('update', function () {
         rebundle();

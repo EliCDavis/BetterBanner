@@ -6,9 +6,14 @@
     "functional",
     "chrome",
     "client",
-    "browser"
+    "browser",
+    "banner",
+    "better"
   ],
-  "author": "Eli",
+  "authors": [
+    "Eli",
+    "Josh Hawkins"
+  ],
   "contributors": [],
   "dependencies": {
     "angular-aria": "^1.5.7",

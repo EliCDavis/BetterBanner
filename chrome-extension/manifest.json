@@ -1,13 +1,13 @@
 {
     "manifest_version": 2,
     "name": "A Better Banner",
-    "version": "versionString",
+    "version": "0.0.0",
     "description": "The Banner Students Deserve",
     "browser_action": {
     },
     "author": "Eli Davis && Josh Hawkins",
     "content_scripts": [{
-            "matches": ["https://my.msstate.edu/cp/home/displaylogin*"],
+            "matches": ["https://my.msstate.edu/"],
             "css": ["inject.css"],
             "js": ["inject.js"]
         }],

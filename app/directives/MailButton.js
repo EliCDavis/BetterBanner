@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2016 Eli.
@@ -31,7 +31,7 @@ module.exports = MailButtonrDirective;
 function MailButtonrDirective() {
     return {
         'restrict': 'E',
-        'template': '<md-button ng-click="openLink();">Mail</md-button>',
+        'template': '<md-button ng-click="openLink();"><i class="material-icons" style="vertical-align:middle;">email</i> Mail</md-button>',
         'controllerAs': 'mail',
         'controller': /*@ngInject*/ function ($scope) {
             $scope.openLink = function (){

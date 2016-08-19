@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2016 Eli.
@@ -32,31 +32,35 @@ module.exports = {
     banner: [
         {
             name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
+            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectBill"
         },
         {
-            name: "View Your Class Schedule & Grades",
+            name: "Your Class Schedule & Grades",
             link: "https://mybanner.msstate.edu/prod/wwskosst.P_SelectTerm"
         },
         {
-            name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
+            name: "Register for Classes",
+            link: "https://mybanner.msstate.edu/prod/wwskfreg.P_SelectTerm"
         },
         {
-            name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
+            name: "Your Holds",
+            link: "https://mybanner.msstate.edu/prod/wwskohld.P_StuHolds"
         },
         {
-            name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
+            name: "Course Catalog",
+            link: "https://mybanner.msstate.edu/prod/wwskocat.P_SelSubject"
         },
         {
-            name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
+            name: "Master Class Schedule",
+            link: "https://mybanner.msstate.edu/prod/wwskosms.P_SelTerm"
         },
         {
-            name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
+            name: "Your CAPP Compliances",
+            link: "https://mybanner.msstate.edu/prod/wwskcapp.P_StuSetCappParams"
+        },
+        {
+            name: "Your Meal Plan",
+            link: "https://mybanner.msstate.edu/prod/wwskmeal.P_DispMealPlan"
         }
     ]
 };

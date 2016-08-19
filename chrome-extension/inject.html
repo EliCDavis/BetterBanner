@@ -1,38 +1,38 @@
-<div layout='column' flex>
+<!DOCTYPE html>
+<!--
+Do not use double-quotes in this document. Only single-quotes.
+-->
+<head>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons'
+      rel='stylesheet'>
+</head>
+<body>
+    <div layout='column' flex>
 
-    <md-toolbar class='md-hue-2' style='max-height: 40px; min-height: 40px;'>
-        <div class='md-toolbar-tools'>
-            <md-button class='md-icon-button' aria-label='Settings' ng-disabled='true'>
-                <md-icon md-svg-icon='img/icons/menu.svg'></md-icon>
-            </md-button>
-            <h2>
-                <span>Attempting to Make This Better</span>
-            </h2>
-            <span flex></span>
-            <bb-mail></bb-mail>
-            <md-button class='md-icon-button' aria-label='More'>
-                <md-icon md-svg-icon='img/icons/more_vert.svg'></md-icon>
-            </md-button>
-        </div>
-    </md-toolbar>
+        <md-toolbar class='md-hue-2' style='max-height: 40px; min-height: 40px;'>
+            <div class='md-toolbar-tools'>
+                <md-button class='md-icon-button' aria-label='Settings' ng-disabled='true'>
+                    <md-icon md-svg-icon='img/icons/menu.svg'></md-icon>
+                </md-button>
+                <h2>
+                    <span>Attempting to Make This Better</span>
+                </h2>
+                <span flex></span>
+                <bb-mail></bb-mail>
+                <md-button class='md-icon-button' aria-label='More'>
+                    <md-icon md-svg-icon='img/icons/more_vert.svg'></md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
 
-    <div layout-margin layout='row' flex>
+        <div layout-margin layout='row' flex>
+            <bb-banner layout-margin layout-padding md-whiteframe='13' flex='30'></bb-banner>
+            <div flex>
+                <h1>Welcome to your BetterBanner</h1>
 
-        <bb-banner layout-margin layout-padding md-whiteframe='13' flex='30'></bb-banner>
-
-        <div flex>
-            <h1>
-                HELP
-            </h1>
-
-            <h1>
-                PLEASE
-            </h1>
-
-            <h1>
-                BANNER HAS MESSED UP EVERYTHING
-            </h1>
+                <h1>If you're missing anything, <a href='https://my.msstate.edu/web/home-community/banner'>click here to return to regular Banner</a>.</h1>
+            </div>
         </div>
 
     </div>
-</div>
+</body>
