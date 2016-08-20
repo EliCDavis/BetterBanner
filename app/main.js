@@ -22,8 +22,6 @@
  * THE SOFTWARE.
  */
 
-
-
 var ourStylesheetHref = "inject.css";
 var bodyNode = document.getElementsByTagName("BODY")[0];
 

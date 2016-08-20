@@ -7,7 +7,7 @@ Do not use double-quotes in this document. Only single-quotes.
       rel='stylesheet'>
 </head>
 <body>
-    <div layout='column' flex>
+    <div style='width:100%; height:100%;' layout='column' flex>
 
         <md-toolbar class='md-hue-2' style='max-height: 40px; min-height: 40px;'>
             <div class='md-toolbar-tools'>
@@ -27,10 +27,12 @@ Do not use double-quotes in this document. Only single-quotes.
 
         <div layout-margin layout='row' flex>
             <bb-banner layout-margin layout-padding md-whiteframe='13' flex='30'></bb-banner>
-            <div flex>
-                <h1>Welcome to your BetterBanner</h1>
-
-                <h1>If you're missing anything, <a href='https://my.msstate.edu/web/home-community/banner'>click here to return to regular Banner</a>.</h1>
+            <div layout='column' flex>
+                
+                
+                <bb-banner-preview layout='column' flex></bb-banner-preview>
+                
+                
             </div>
         </div>
 

@@ -10,6 +10,9 @@
             "matches": ["https://my.msstate.edu/"],
             "css": ["inject.css"],
             "js": ["inject.js"]
+        },{
+            "matches": ["https://my.msstate.edu/cp/home/displaylogin"],
+            "js": ["forwardToSite.js"]
         }],
     "permissions": ["tabs"],
     "version_name": "1.0.0",

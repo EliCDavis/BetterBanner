@@ -27,3 +27,4 @@ var app = require("angular").module('Better Banner');
 
 app.directive('bbBanner', require('./Banner.js'));
 app.directive('bbMail', require('./MailButton.js'));
+app.directive('bbBannerPreview', require('./BannerPreview.js'));
