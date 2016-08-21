@@ -32,7 +32,7 @@ module.exports = {
     banner: [
         {
             name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectBill"
+            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
         },
         {
             name: "Your Class Schedule & Grades",

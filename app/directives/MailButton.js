@@ -25,13 +25,13 @@
 
 var mailLink = require('../Links').sidebar.mail;
 
-module.exports = MailButtonrDirective;
+module.exports = MailButtonDirective;
 
 
-function MailButtonrDirective() {
+function MailButtonDirective() {
     return {
         'restrict': 'E',
-        'template': '<md-button ng-click="openLink();"><i class="material-icons" style="vertical-align:middle;">email</i> Mail</md-button>',
+        'template': '<md-button ng-click="openLink();"><i class="material-icons" style="vertical-align:middle;">mail_outline</i> Mail</md-button>',
         'controllerAs': 'mail',
         'controller': /*@ngInject*/ function ($scope) {
             $scope.openLink = function (){

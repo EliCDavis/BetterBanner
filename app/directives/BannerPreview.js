@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2016 Eli Davis.
@@ -28,14 +28,14 @@ module.exports = BannerPreviewDirective;
 function BannerPreviewDirective() {
     return {
         'restrict': 'E',
-        'template': '<div ng-hide="preview.currentelyOpenedLink"><h1>Welcome to your BetterBanner</h1><h1>If you are missing anything, <a href="https://my.msstate.edu/web/home-community/banner">click here to return to regular Banner</a>.</h1></div><iframe ng-show="preview.currentelyOpenedLink" flex src="{{preview.currentelyOpenedLink}}"></iframe>',
+        'template': '<div ng-hide="preview.currentelyOpenedLink"><h1>Welcome to your BetterBanner</h1><h1>If you are missing anything, <a href="https://my.msstate.edu/web/home-community">click here to return to regular Banner</a>.</h1></div><iframe ng-show="preview.currentelyOpenedLink" flex src="{{preview.currentelyOpenedLink}}"></iframe>',
         'controllerAs': 'preview',
         'controller': /*@ngInject*/ function ($sce, $rootScope) {
-            
+
             var self = this;
-            
+
             self.currentelyOpenedLink = "";
-            
+
             $rootScope.openLink = function (link){
                 if(link) {
                     self.currentelyOpenedLink = $sce.trustAsResourceUrl(link);

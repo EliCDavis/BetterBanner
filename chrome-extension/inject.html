@@ -3,11 +3,10 @@
 Do not use double-quotes in this document. Only single-quotes.
 -->
 <head>
-    <link href='https://fonts.googleapis.com/icon?family=Material+Icons'
-      rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
 </head>
 <body>
-    <div style='width:100%; height:100%;' layout='column' flex>
+    <div id='main' style='width:100%; height:100%;' layout='column' flex>
 
         <md-toolbar class='md-hue-2' style='max-height: 40px; min-height: 40px;'>
             <div class='md-toolbar-tools'>
@@ -18,6 +17,7 @@ Do not use double-quotes in this document. Only single-quotes.
                     <span>Attempting to Make This Better</span>
                 </h2>
                 <span flex></span>
+                <bb-classroom></bb-classroom>
                 <bb-mail></bb-mail>
                 <md-button class='md-icon-button' aria-label='More'>
                     <md-icon md-svg-icon='img/icons/more_vert.svg'></md-icon>
@@ -28,11 +28,7 @@ Do not use double-quotes in this document. Only single-quotes.
         <div layout-margin layout='row' flex>
             <bb-banner layout-margin layout-padding md-whiteframe='13' flex='30'></bb-banner>
             <div layout='column' flex>
-                
-                
                 <bb-banner-preview layout='column' flex></bb-banner-preview>
-                
-                
             </div>
         </div>
 

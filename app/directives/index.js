@@ -1,4 +1,4 @@
-/* 
+/*
  * The MIT License
  *
  * Copyright 2016 Eli.
@@ -27,4 +27,5 @@ var app = require("angular").module('Better Banner');
 
 app.directive('bbBanner', require('./Banner.js'));
 app.directive('bbMail', require('./MailButton.js'));
+app.directive('bbClassroom', require('./ClassroomButton.js'));
 app.directive('bbBannerPreview', require('./BannerPreview.js'));
