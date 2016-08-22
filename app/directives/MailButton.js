@@ -31,13 +31,17 @@ module.exports = MailButtonDirective;
 function MailButtonDirective() {
     return {
         'restrict': 'E',
-        'template': '<md-button ng-click="openLink();"><i class="material-icons" style="vertical-align:middle;">mail_outline</i> Mail</md-button>',
+        'template': '<md-button ng-click="mail.openLink();"><i class="material-icons" style="vertical-align:middle;">mail_outline</i> Mail</md-button>',
         'controllerAs': 'mail',
-        'controller': /*@ngInject*/ function ($scope) {
-            $scope.openLink = function (){
+        'controller': /*@ngInject*/ function () {
+            
+            var self = this;
+            
+            self.openLink = function (){
                 console.log("Opening link... "+ mailLink);
                 window.open(mailLink);
             };
+            
         }
     };
 }

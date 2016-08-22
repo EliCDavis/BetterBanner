@@ -31,13 +31,17 @@ module.exports = ClassroomButtonDirective;
 function ClassroomButtonDirective() {
     return {
         'restrict': 'E',
-        'template': '<md-button ng-click="openLink();"><i class="material-icons" style="vertical-align:middle;">import_contacts</i> Classroom</md-button>',
+        'template': '<md-button ng-click="classroom.openLink();"><i class="material-icons" style="vertical-align:middle;">import_contacts</i> Classroom</md-button>',
         'controllerAs': 'classroom',
-        'controller': /*@ngInject*/ function ($scope) {
-            $scope.openLink = function (){
+        'controller': /*@ngInject*/ function () {
+            
+            var self = this;
+            
+            self.openLink = function (){
                 console.log("Opening link... "+ classroomLink);
                 window.open(classroomLink);
             };
+            
         }
     };
 }
