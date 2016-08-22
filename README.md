@@ -28,7 +28,7 @@ To have any changes appear in the extension you need to hit the reload link in t
 ## TODO
 * Autologin
 * Popup links to school email
-* Auto-forward from login to main page.
+* ~~Auto-forward from login to main page.~~
 * Easy to turnoff
 * Documentation
 * Prettify page

@@ -28,7 +28,7 @@ module.exports = BannerPreviewDirective;
 function BannerPreviewDirective() {
     return {
         'restrict': 'E',
-        'template': '<div ng-hide="preview.currentelyOpenedLink"><h1>Welcome to your BetterBanner</h1><h1>If you are missing anything, <a href="https://my.msstate.edu/web/home-community">click here to return to regular Banner</a>.</h1></div><iframe ng-show="preview.currentelyOpenedLink" flex src="{{preview.currentelyOpenedLink}}"></iframe>',
+        'template': '<bb-my-courses-listing></bb-my-courses-listing><div ng-hide="preview.currentelyOpenedLink"><h1>Welcome to your BetterBanner</h1><h1>If you are missing anything, <a href="https://my.msstate.edu/web/home-community">click here to return to regular Banner</a>.</h1></div><iframe style="border-style: none;"  md-whiteframe="13" ng-show="preview.currentelyOpenedLink" flex src="{{preview.currentelyOpenedLink}}"></iframe>',
         'controllerAs': 'preview',
         'controller': /*@ngInject*/ function ($sce, $rootScope) {
 

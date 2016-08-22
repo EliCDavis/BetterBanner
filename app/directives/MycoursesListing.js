@@ -1,7 +1,7 @@
-/*
+/* 
  * The MIT License
  *
- * Copyright 2016 Eli.
+ * Copyright 2016 Eli Davis.
  *
  * Permission is hereby granted, free of charge, to any person obtaining a copy
  * of this software and associated documentation files (the "Software"), to deal
@@ -22,35 +22,21 @@
  * THE SOFTWARE.
  */
 
-var ourStylesheetHref = "inject.css";
-var bodyNode = document.getElementsByTagName("BODY")[0];
 
-// Remove that nasty fucking DOM
-while (bodyNode.firstChild) {
-    bodyNode.removeChild(bodyNode.firstChild);
-}
+module.exports = MycoursesDirective;
 
-// Remove Those Horrendus Styles Sheets
-Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"],[type="text/css"]'), function (element) {
-    try {
-        if (ourStylesheetHref !== element.href) {
-            element.parentNode.removeChild(element);
+
+function MycoursesDirective() {
+    return {
+        'restrict': 'E',
+        'template': '<div style="margin:5px;" layout="row" layout-align="center center"><md-button class="md-primary md-raised" ng-repeat="link in myCourses.courses" ng-click="openLink(link.url)" ng-bind="link.name"></md-button></div>',
+        'controllerAs': 'myCourses',
+        'controller': /*@ngInject*/ function (MyCourses) {
+            
+            var self = this;
+            
+            self.courses = MyCourses.getCourses();
+            
         }
-    } catch (err) {
-    }
-});
-
-// Now let's add back what we want
-bodyNode.innerHTML = ''+require('../InjectHtmlKey');
-
-// Let's set up the angular app now!
-var angular = require('angular');
-
-require('angular-material');
-
-var app = angular.module('Better Banner', ['ngMaterial']);
-
-require('./directives');
-require('./services/');
-
-angular.bootstrap(document, ['Better Banner']);
+    };
+}

@@ -6,6 +6,9 @@ Do not use double-quotes in this document. Only single-quotes.
     <link href='https://fonts.googleapis.com/icon?family=Material+Icons' rel='stylesheet'>
 </head>
 <body>
+    
+    <!--To keep from other banner links having trouble loading, banner has to be loaded first-->
+    <!-- Yeah I mean  -\__(0_0)__/- This whole extension is a hack -->
     <iframe style='display:none' src='https://my.msstate.edu/web/home-community/banner'></iframe>
 
     <div id='main' style='width:100%; height:100%;' layout='column' flex>
@@ -28,7 +31,7 @@ Do not use double-quotes in this document. Only single-quotes.
         </md-toolbar>
 
         <div layout-margin layout='row' flex>
-            <bb-banner layout-margin layout-padding md-whiteframe='13' flex='30'></bb-banner>
+            <bb-banner layout-margin layout-padding md-whiteframe='13' layout-xs='40' layout-sm='30' flex-md='30' flex-lg='20' layout-xl='15'></bb-banner>
             <div layout='column' flex>
                 <bb-banner-preview layout='column' flex></bb-banner-preview>
             </div>
