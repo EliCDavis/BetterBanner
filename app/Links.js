@@ -27,7 +27,8 @@ module.exports = {
     sidebar: {
         classroom: "https://my.msstate.edu/web/home-community/classroom#",
         mail: "https://mail.google.com/a/msstate.edu",
-        banner: "https://my.msstate.edu/web/home-community/banner"
+        banner: "https://my.msstate.edu/web/home-community/banner",
+        map: "https://map.msstate.edu/map/?id=233#!ct/6665,7602,2396,2398,2399,2401,2400,7257,2397,7090,7088,2402,5465,8935"
     },
     banner: [
         {
@@ -61,6 +62,12 @@ module.exports = {
         {
             name: "Your Meal Plan",
             link: "https://mybanner.msstate.edu/prod/wwskmeal.P_DispMealPlan"
+        },{
+            name: "Order or Reserve Your Textbooks",
+            link: "https://mybanner.msstate.edu/prod/wwskotbo.P_TextbookOrder"
+        },{
+            name: "Accept/Decline Scholarship Awards",
+            link: "https://msstate.academicworks.com"
         }
     ]
 };

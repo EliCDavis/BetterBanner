@@ -75,7 +75,8 @@ gulp.task('default', ['build'], function () {
 
 gulp.task('css', function () {
     gulp.src([
-        'node_modules/angular-material/angular-material.min.css'
+        'node_modules/angular-material/angular-material.min.css',
+        './app/css/**/*.css'
     ])
         .pipe(concat('inject.css'))
         .pipe(gulp.dest(buildDir));

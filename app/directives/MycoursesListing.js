@@ -29,13 +29,17 @@ module.exports = MycoursesDirective;
 function MycoursesDirective() {
     return {
         'restrict': 'E',
-        'template': '<div style="margin:5px;" layout="row" layout-align="center center"><md-button class="md-primary md-raised" ng-repeat="link in myCourses.courses" ng-click="openLink(link.url)" ng-bind="link.name"></md-button></div>',
+        'template': '<div style="margin:5px;" layout="row" layout-align="center center"><md-button class="md-primary md-raised" ng-click="myCourses.openMyCoursesSettings()"><i class="material-icons" style="vertical-align:middle;">settings</i></md-button><md-button class="md-primary md-raised" ng-repeat="link in myCourses.courses" ng-click="openLink(link.url)" ng-bind="link.name"></md-button></div>',
         'controllerAs': 'myCourses',
         'controller': /*@ngInject*/ function (MyCourses) {
             
             var self = this;
             
             self.courses = MyCourses.getCourses();
+            
+            self.openMyCoursesSettings = function() {
+                console.log("Heyyyy");
+            };
             
         }
     };
