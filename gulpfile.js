@@ -35,7 +35,6 @@ function buildScript(file, watch, minify) {
     // Gulp replace doesn't like line breaks
     fileContent = fileContent.replace(/(\r\n|\n|\r|\t)/gm, "");
 
-    console.log(fileContent);
 
     var props = {entries: [scriptsDir + '/' + file], debug: true, cache: {}, packageCache: {}};
     var bundler = watch ? watchify(browserify(props)) : browserify(props);
