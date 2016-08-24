@@ -25,30 +25,69 @@
 
 module.exports = Mycourses;
 
-/*
+/**
+ * Mycourses service takes care of loading in user saved courses from chrome storage
+ * and providing anyone who has the need for it.
+ * 
+ * So this will interface with chrome storage, not the directives.
+ * 
+ * Subscriptions?
+ * My hacked together solution to not wanting to include Rx in fear of bloating dependencies.
+ * 
  * @ngInject
  */
 function Mycourses() {
 
     var self = this;
+    
+    /**
+     * Array of functions which will be called whenever new course information is
+     * recieved
+     */
+    var _subscriptions = [];
 
-    // This needs to change to grabbing from Chrome Storage
-    self.getCourses = function(){
-        return [
-            {
-                name: "SW Arch & Design",
-                url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_29069_01&url="
-            },{
-                name: "Software Eng Sr Project I",
-                url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_29061_01&url="
-            },{
-                name: "Prog Languages",
-                url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_33289_01&url="
-            },{
-                name: "Biology I",
-                url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_31199_01&url="
-            }
-        ];
+    /**
+     * For new subscribers this object will be pushed to them immediately.
+     */
+    var _lastCourseObject = [
+        {
+            name: "SW Arch & Design",
+            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_29069_01&url="
+        }, {
+            name: "Software Eng Sr Project I",
+            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_29061_01&url="
+        }, {
+            name: "Prog Languages",
+            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_33289_01&url="
+        }, {
+            name: "Biology I",
+            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_31199_01&url="
+        }
+    ];
+
+
+    var _syncChangesToChrome = function(newChanges) {
+        
+    };
+
+
+    self.subscribeToCourses = function (cb) {
+        _subscriptions.push(cb);
+        cb(_lastCourseObject);
+    };
+    
+    
+    self.setCourses = function(newCourseData) {
+        _syncChangesToChrome(newCourseData);
+        _pushCoursesToSubscribers(newCourseData);
+        _lastCourseObject = newCourseData;
+    };
+    
+    
+    var _pushCoursesToSubscribers = function(data) {
+        _subscriptions.forEach(function(subscriber) {
+            subscriber(data);
+        });
     };
     
 }

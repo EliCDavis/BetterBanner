@@ -31,3 +31,4 @@ app.directive('bbClassroom', require('./ClassroomButton.js'));
 app.directive('bbBannerPreview', require('./BannerPreview.js'));
 app.directive('bbMyCoursesListing', require('./MycoursesListing.js'));
 app.directive('bbMapButton', require('./MapButton.js'));
+app.directive('iframeOnload', require('./iframeonload.js'));

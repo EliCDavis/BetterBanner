@@ -14,7 +14,7 @@
             "matches": ["https://my.msstate.edu/cp/home/displaylogin"],
             "js": ["forwardToSite.js"]
         }],
-    "permissions": ["tabs"],
+    "permissions": ["tabs", "storage"],
     "version_name": "1.0.0",
     "version": "1.0.0"
 }
