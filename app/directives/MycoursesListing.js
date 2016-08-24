@@ -29,7 +29,7 @@ module.exports = MycoursesDirective;
 function MycoursesDirective() {
     return {
         'restrict': 'E',
-        'template': '<div style="margin:5px;" layout="row" layout-align="center center"><md-button class="md-primary md-raised" ng-click="myCourses.openMyCoursesSettings()"><i class="material-icons" style="vertical-align:middle;">settings</i></md-button><md-button class="md-primary md-raised" ng-repeat="link in myCourses.courses" ng-click="openLink(link.url)" ng-bind="link.name"></md-button></div>',
+        'template': '<div style="margin-bottom:5px;" layout="row" layout-align="center center"><md-button style="margin-top:0px;" class="md-primary md-raised" ng-click="myCourses.openMyCoursesSettings()"><i class="material-icons" style="vertical-align:middle;">settings</i></md-button><md-button class="md-primary md-raised" ng-repeat="link in myCourses.courses" ng-click="openLink(link.url)" ng-bind="link.name"></md-button></div>',
         'controllerAs': 'myCourses',
         'controller': /*@ngInject*/ function (MyCourses, $mdDialog) {
             
@@ -47,12 +47,12 @@ function MycoursesDirective() {
                         
                         $scope.decipheredClasses = [];
                         
+                        $scope.addedClasses = MyCourses.getSetCourses();
+                        
                         $scope.IframeLoaded = function(){
                             
                             var iframe = document.getElementById('hiddenMycourses');
-                            
                             var tableBody = iframe.contentWindow.document.getElementById('coursesTable').getElementsByTagName('TBODY')[0];
-                            
                             var foundClasses = [];
                             
                             for(var i = 0; i < tableBody.children.length; i ++) {
@@ -68,12 +68,46 @@ function MycoursesDirective() {
                             
                         };
                         
+                        
                         $scope.saveChanges = function() {
                             $mdDialog.hide();
+                            MyCourses.setCourses($scope.addedClasses);
                         };
+                        
                         
                         $scope.discardChanges = function() {
                             $mdDialog.hide();
+                        };
+                        
+                        
+                        $scope.addClassToSave = function(name, url){
+                            
+                            // Make sure the class hasn't already been added
+                            for(var i = 0; i < $scope.addedClasses.length; i++){
+                                if ($scope.addedClasses[i].url === url) {
+                                    return;
+                                }
+                            }
+                            
+                            $scope.addedClasses.push({
+                                name: name,
+                                url: url
+                            });
+                            
+                            console.log($scope.addedClasses);
+                            
+                        };
+                        
+                        
+                        $scope.removeClassFromSave = function(url) { 
+                            
+                            for(var i = 0; i < $scope.addedClasses.length; i++){
+                                if ($scope.addedClasses[i].url === url) {
+                                    $scope.addedClasses.splice(i, 1);
+                                    return;
+                                }
+                            }
+                            
                         };
                         
                     },
@@ -84,15 +118,21 @@ function MycoursesDirective() {
                                         <md-button ng-click='discardChanges()'>Cancel</md-button>\
                                     </div>\
                                     <div layout='row' flex>\
-                                        <div flex='70'>\
+                                        <div flex='50'>\
                                             <h3>MyCourses</h3>\
                                             <div><span ng-if='decipheredClasses.length === 0'>Loading.....</span>\
                                                 <md-list-item ng-repeat='class in decipheredClasses'>\
-                                                    <md-button ng-bind='class.name'></md-button>\
+                                                    <md-button ng-click='addClassToSave(class.name, class.url)' ng-bind='class.name'></md-button>\
                                                 </md-list-item>\
                                             </div>\
                                         </div>\
-                                        <div flex><h3>Selected Courses</h3></div>\
+                                        <div flex><h3>Selected Courses</h3>\n\
+                                            <div><span ng-if='addedClasses.length === 0'>Nothing Added!</span>\
+                                                <md-list-item ng-repeat='class in addedClasses'>\
+                                                    <md-button ng-click='removeClassFromSave(class.url)' ng-bind='class.name'></md-button>\
+                                                </md-list-item>\
+                                            </div>\
+                                        </div>\
                                     </div>\
                                 </div>",
                     clickOutsideToClose: false

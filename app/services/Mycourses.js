@@ -49,25 +49,24 @@ function Mycourses() {
     /**
      * For new subscribers this object will be pushed to them immediately.
      */
-    var _lastCourseObject = [
-        {
-            name: "SW Arch & Design",
-            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_29069_01&url="
-        }, {
-            name: "Software Eng Sr Project I",
-            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_29061_01&url="
-        }, {
-            name: "Prog Languages",
-            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_33289_01&url="
-        }, {
-            name: "Biology I",
-            url: "https://mycourses.msstate.edu/webapps/blackboard/execute/launcher?type=Course&id=_31199_01&url="
-        }
-    ];
+    var _lastCourseObject = [];
 
+
+    chrome.storage.sync.get('MyCourses', function(classes) {
+        console.log('Settings loaded', classes);
+        _pushCoursesToSubscribers(classes.MyCourses);
+        _lastCourseObject = classes.MyCourses;
+    });
 
     var _syncChangesToChrome = function(newChanges) {
-        
+        chrome.storage.sync.set({'MyCourses': newChanges}, function() {
+            console.log('Settings saved');
+        });
+    };
+
+
+    self.getSetCourses = function() {
+        return _lastCourseObject;
     };
 
 
