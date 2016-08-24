@@ -58,7 +58,7 @@ function MycoursesDirective() {
                             for(var i = 0; i < tableBody.children.length; i ++) {
                                 var link = tableBody.children[i].getElementsByTagName('TD')[0].getElementsByTagName('A')[0];
                                 foundClasses.push({
-                                    name: link.innerText,
+                                    name: link.innerText.replace(/\s*\(.*\)/,''),
                                     url: link.href
                                 });
                             }
