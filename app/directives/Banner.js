@@ -30,14 +30,19 @@ module.exports = BannerDirective;
 function BannerDirective() {
     return {
         'restrict': 'E',
-        'template': '<center style="margin-bottom: 0px;"><h1 style="margin-bottom:0px;">Banner</h1><h4 style="margin-top:0px;"><a href="https://my.msstate.edu/web/home-community">Actual Banner</a></h4></center><div layout="column" flex style="overflow:auto;margin-top:0px;"><md-button ng-repeat="link in banner.links" ng-click="openLink(link.link)" ng-bind="link.name"></md-button></div>',
+        'template': '<center style="margin-bottom: 0px;">\
+                        <h1 style="margin-bottom:0px;">Banner</h1>\
+                        <h4 style="margin-top:0px;"><a href="https://my.msstate.edu/web/home-community">Actual Banner</a></h4>\
+                    </center>\
+                    <div layout-align="space-between center" layout="column" flex style="overflow:auto;margin-top:0px;">\
+                        <md-button style="white-space: normal;" ng-repeat="link in banner.links" ng-click="openLink(link.link)" ng-bind="link.name"></md-button>\
+                    </div>',
         'controllerAs': 'banner',
-        'controller': /*@ngInject*/ function ($scope) {
+        'controller': /*@ngInject*/ function () {
 
             var self = this;
 
             self.links = bannerLinks;
-
 
         }
     };

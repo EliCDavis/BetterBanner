@@ -55,7 +55,7 @@ function Mycourses() {
     chrome.storage.sync.get('MyCourses', function(classes) {
         console.log('Settings loaded', classes);
         _pushCoursesToSubscribers(classes.MyCourses);
-        _lastCourseObject = classes.MyCourses;
+        _lastCourseObject = classes.MyCourses || [];
     });
 
     var _syncChangesToChrome = function(newChanges) {
