@@ -22,6 +22,7 @@
  * THE SOFTWARE.
  */
 
+document.body.style.display = "block";
 var ourStylesheetHref = "inject.css";
 var bodyNode = document.getElementsByTagName("BODY")[0];
 

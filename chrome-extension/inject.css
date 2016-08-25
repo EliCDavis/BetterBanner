@@ -32,6 +32,10 @@ THE SOFTWARE.
     Author     : Eli
 */
 
+body {
+    display: none;
+}
+
 button {
     min-width: 40px;
 }
