@@ -27,7 +27,7 @@ var ourStylesheetHref = "inject.css";
 var bodyNode = document.getElementsByTagName("BODY")[0];
 var currentStudentName = document.getElementsByClassName("msu-names")[0].innerText;
 
-// Remove that nasty fucking DOM 
+// Remove that nasty DOM 
 while (bodyNode.firstChild) {
     bodyNode.removeChild(bodyNode.firstChild);
 }

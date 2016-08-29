@@ -30,7 +30,7 @@ function buildScript(file, watch, minify) {
 
     minify = minify || false;
 
-    var fileContent = fs.readFileSync("chrome-extension/inject.html", "utf8");
+    var fileContent = fs.readFileSync("app/inject.html", "utf8");
 
     // Gulp replace doesn't like line breaks
     fileContent = fileContent.replace(/(\r\n|\n|\r|\t)/gm, "");
