@@ -5,6 +5,10 @@
     "description": "The Banner Students Deserve",
     "browser_action": {
     },
+    "background": {
+        "scripts": ["dawgHouse.js"],
+        "persistent": false
+    },
     "author": "Eli Davis && Josh Hawkins",
     "content_scripts": [{
             "matches": ["https://my.msstate.edu/"],
