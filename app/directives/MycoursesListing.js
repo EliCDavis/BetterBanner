@@ -123,7 +123,7 @@ function MycoursesDirective() {
                                         <md-button ng-click='discardChanges()'>Cancel</md-button>\
                                     </div>\
                                     <div layout='row' flex>\
-                                        <div flex='50'>\
+                                        <div style='overflow:auto;' flex='50'>\
                                             <h3>MyCourses</h3>\
                                             <div><span ng-if='decipheredClasses.length === 0'>Loading.....</span>\
                                                 <md-list-item ng-repeat='class in decipheredClasses'>\

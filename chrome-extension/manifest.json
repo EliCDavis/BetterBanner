@@ -1,6 +1,7 @@
 {
     "manifest_version": 2,
     "name": "Better Banner",
+    "short_name": "Better Banner",
     "description": "The Banner Students Deserve",
     "browser_action": {
     },

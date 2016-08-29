@@ -53,4 +53,7 @@ node_modules
 node_modules\*
 node_modules/*
 npm-debug.log
+
 chrome-extension\inject.js
+
+chrome-extension/inject.js
