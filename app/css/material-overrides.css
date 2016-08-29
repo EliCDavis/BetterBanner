@@ -33,3 +33,10 @@ body {
 button {
     min-width: 40px;
 }
+
+footer {
+    position: right;
+    z-index: 10;
+    height: 3em;
+    margin-top: -3em;
+}
