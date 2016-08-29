@@ -25,8 +25,9 @@
 document.body.style.display = "block";
 var ourStylesheetHref = "inject.css";
 var bodyNode = document.getElementsByTagName("BODY")[0];
+var currentStudentName = document.getElementsByClassName("msu-names")[0].innerText;
 
-// Remove that nasty fucking DOM
+// Remove that nasty fucking DOM 
 while (bodyNode.firstChild) {
     bodyNode.removeChild(bodyNode.firstChild);
 }
@@ -50,6 +51,9 @@ var angular = require('angular');
 require('angular-material');
 
 var app = angular.module('Better Banner', ['ngMaterial']);
+app.constant("currentStudentData", {
+	name: currentStudentName
+});
 
 require('./directives');
 require('./services/');

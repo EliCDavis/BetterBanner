@@ -27,20 +27,48 @@ var bannerLinks = require('../Links').banner;
 module.exports = BannerDirective;
 
 
+
 function BannerDirective() {
     return {
         'restrict': 'E',
         'template': '<center style="margin-bottom: 0px;">\
-                        <h1 style="margin-bottom:0px;">Banner</h1>\
-                        <h4 style="margin-top:0px;"><a href="https://my.msstate.edu/web/home-community">Actual Banner</a></h4>\
+                        <h2 ng-bind="banner.greeting" style="margin-bottom:0px;">Better Banner</h2>\
+                        <h4 style="margin-top:0px;"><a href="https://my.msstate.edu/web/home-community">Click here to go back to original banner style.</a></h4>\
                     </center>\
                     <div layout-align="space-between center" layout="column" flex style="overflow:auto;margin-top:0px;">\
                         <md-button style="white-space: normal;" ng-repeat="link in banner.links" ng-click="openLink(link.link)" ng-bind="link.name"></md-button>\
                     </div>',
         'controllerAs': 'banner',
-        'controller': /*@ngInject*/ function () {
+        'controller': /*@ngInject*/ function (currentStudentData) {
 
             var self = this;
+			
+			// Personal Greeting Function
+			self.Greeting = function() {
+				var currentTime = new Date();
+				var hours = currentTime.getHours();
+				
+				if (hours < 6) {
+					self.greeting = "Why are you still up, " + currentStudentData.name + "?";
+				}
+				else if (hours >= 6 & hours < 12) {
+					self.greeting = "Good morning, " + currentStudentData.name + "!";
+				}
+				
+				else if (hours >= 12 & hours < 18) {
+					self.greeting = "Good afternoon, " + currentStudentData.name + "!";
+				}
+				
+				else if (hours >= 18 & hours < 21) {
+					self.greeting = "Good evening, " + currentStudentData.name + "!";
+				}
+				
+				else {
+					self.greeting = "You should really be getting ready for bed, " + currentStudentData.name + "!";
+				}
+			}
+			
+			self.Greeting();
 
             self.links = bannerLinks;
 

@@ -32,12 +32,12 @@ module.exports = {
     },
     banner: [
         {
-            name: "Billing Statement",
-            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
-        },
-        {
             name: "Your Class Schedule & Grades",
             link: "https://mybanner.msstate.edu/prod/wwskosst.P_SelectTerm"
+        },
+		{
+            name: "Billing Statement",
+            link: "https://mybanner.msstate.edu/prod/wwskoacc.P_ReDirectViewBill"
         },
         {
             name: "Register for Classes",
@@ -66,7 +66,7 @@ module.exports = {
             name: "Order or Reserve Your Textbooks",
             link: "https://mybanner.msstate.edu/prod/wwskotbo.P_TextbookOrder"
         },{
-            name: "Accept/Decline Scholarship Awards",
+            name: "Accept/Decline Scholarship",
             link: "https://msstate.academicworks.com"
         }
     ]
