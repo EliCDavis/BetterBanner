@@ -2,14 +2,24 @@
 
 [Extension Here.](https://chrome.google.com/webstore/detail/better-banner/kphichjfjfaadmiehjplnmpfgfjkblbm)
 
-**THIS IS NOT A PRODUCT OF MISSISSIPPI STATE UNIVERSITY NOR DID THEY HAVE ANY SAY OR DEVELOPMENT IN THE EXTENSION.  THIS EXTENSION IS A MANIFESTATION OF THE FRUSTRATION STUDENTS HAVE USING THE TOOLS GIVEN TO US BY MSU**
-
-This extension attempts to minimize the stress students have to suffer from using the website MSU provided.
+**THIS IS NOT A PRODUCT OF MISSISSIPPI STATE UNIVERSITY NOR DID THEY HAVE ANY SAY OR DEVELOPMENT IN THE EXTENSION**
 
 This extension allows students to check their grades, view their MyCourses classes, check their email, and more in a single page.  It uses an iframe that doesn't take up the entire screen in an annoying manner.  It redirects you from the annoying "can't find resources" page when you first log in.  It saves the classes you are taking for easy access.
 
 Hope you enjoy
 xoxo
+
+## How It Works
+This extension works entirely client side to "reskin" what students would see on their side of things.  This extension *modifies nothing* on the server end of things. 
+
+### Deletion Step
+When a user logs in, the extension waits for the resulting screen to completely load.  Once loaded, the extension completely deletes whatever html is on the page as well as style sheets loaded in.
+
+### Injection Step
+Once we have a blank canvas our code inserts our custom html file and the extension loads in our own custom css file for the page.  The javascript that does this has been loaded in it's own isolated world that chrome extensions run in so other peoples code can not mess with our extension.
+
+### Angular Step
+Then we begin building and binding our angular application to the newly loaded html to make the page dynamic.  We instantiate our directives and services and include angular material.
 
 ## Dev Env Setup
 
