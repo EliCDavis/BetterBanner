@@ -52,7 +52,7 @@ function MycoursesDirective() {
                         
                         $scope.decipheredClasses = [];
                         
-                        $scope.addedClasses = MyCourses.getSetCourses();
+                        $scope.addedClasses = MyCourses.getSetCourses().slice();
                         
                         $scope.IframeLoaded = function(){
                             
@@ -87,6 +87,10 @@ function MycoursesDirective() {
                         
                         $scope.addClassToSave = function(name, url){
                             
+                            if(!name || !url){
+                                return;
+                            }
+                            
                             // Make sure the class hasn't already been added
                             for(var i = 0; i < $scope.addedClasses.length; i++){
                                 if ($scope.addedClasses[i].url === url) {
@@ -115,6 +119,23 @@ function MycoursesDirective() {
                             
                         };
                         
+                        $scope.getMatches = function(searchText){
+                            
+                            if(searchText === ""){
+                                return $scope.decipheredClasses;
+                            }
+                            
+                            var matches = [];
+                            
+                            $scope.decipheredClasses.forEach(function(curClass) {
+                                if(curClass.name.toLowerCase().indexOf(searchText.toLowerCase()) !== -1){
+                                    matches.push(curClass);
+                                }
+                            });
+                            
+                            return matches;
+                        };
+                        
                     },
                     template:   "<iframe style='display:none;' iframe-onload='IframeLoaded()' id='hiddenMycourses' src='https://my.msstate.edu/web/home-community/classroom'></iframe>\
                                 <div style='min-width:600px;min-height:300px;max-height:600px;' layout='column' layout-margin flex>\
@@ -125,13 +146,21 @@ function MycoursesDirective() {
                                     <div layout='row' flex>\
                                         <div style='overflow:auto;' flex='50'>\
                                             <h3>MyCourses</h3>\
-                                            <div><span ng-if='decipheredClasses.length === 0'>Loading.....</span>\
-                                                <md-list-item ng-repeat='class in decipheredClasses'>\
+                                            <div><span ng-if='decipheredClasses.length === 0'>Loading.....</span><span ng-if='decipheredClasses.length !== 0'>\
+                                                <md-autocomplete md-selected-item-change='addClassToSave(item.name, item.url);searchText=\"\"; selectedItem=null' md-selected-item='selectedItem' md-search-text='searchText' md-items='item in getMatches(searchText)' md-item-text='item.display'>\
+                                                    <md-item-template>\
+                                                      <span ng-click='addClassToSave(item.name, item.url)' md-highlight-text='searchText'>{{item.name}}</span>\
+                                                    </md-item-template>\
+                                                    <md-not-found>\
+                                                      No matches found.\
+                                                    </md-not-found>\
+                                                  </md-autocomplete></span>\
+                                                  <md-list-item ng-repeat='class in decipheredClasses'>\
                                                     <md-button ng-click='addClassToSave(class.name, class.url)' ng-bind='class.name'></md-button>\
                                                 </md-list-item>\
                                             </div>\
                                         </div>\
-                                        <div flex><h3>Selected Courses</h3>\n\
+                                        <div flex><h3>Selected Courses</h3>\
                                             <div><span ng-if='addedClasses.length === 0'>Nothing Added!</span>\
                                                 <md-list-item ng-repeat='class in addedClasses'>\
                                                     <md-button ng-click='removeClassFromSave(class.url)' ng-bind='class.name'></md-button>\

@@ -35,7 +35,7 @@ function BannerPreviewDirective() {
                             <h1>Welcome to your Better Banner!</h1>\
                             <h3>Thank you for choosing the <i>bloatware-free</i> version of Banner. Our goal is to reduce the number of steps it takes you to get to the items you actually need! </h3>\
 							<p> **If you face any issues with this extension, navigate over to the sidebar menu to revert back to the original version of Banner.</p>\
-							<footer>Hacked by: <a href="https://github.com/EliCDavis">Eli Davis</a> and <a href="https://github.com/hawkins">Josh Hawkins</a></footer>\
+							<footer>Created by <a href="https://github.com/MSUStudents/BetterBanner/graphs/contributors">students like you</a>.</footer>\
                         </center>\
                         <div flex></div>\
                     </div>\

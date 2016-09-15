@@ -27,9 +27,9 @@ module.exports = {
     sidebar: {
         banner: "https://my.msstate.edu/web/home-community/banner",
         classroom: "https://my.msstate.edu/web/home-community/classroom#",
-        diningHours: "https://msstatedining.campusdish.com/-/media/3023E4E8778247ECAC4452BFCA55B47F.ashx"
+        diningHours: "https://msstatedining.campusdish.com/-/media/3023E4E8778247ECAC4452BFCA55B47F.ashx",
         mail: "https://mail.google.com/a/msstate.edu",
-        map: "https://map.msstate.edu/map/?id=233#!ct/6665,7602,2396,2398,2399,2401,2400,7257,2397,7090,7088,2402,5465,8935",
+        map: "https://map.msstate.edu/map/?id=233#!ct/6665,7602,2396,2398,2399,2401,2400,7257,2397,7090,7088,2402,5465,8935"
     },
     banner: [
         {
