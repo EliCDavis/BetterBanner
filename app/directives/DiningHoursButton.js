@@ -23,13 +23,25 @@
  */
 
 
-var app = require("angular").module('Better Banner');
+var diningHoursLink = require('../Links').sidebar.diningHours;
 
-app.directive('bbBanner', require('./Banner.js'));
-app.directive('bbMail', require('./MailButton.js'));
-app.directive('bbClassroom', require('./ClassroomButton.js'));
-app.directive('bbDiningHours', require('./DiningHoursButton.js'));
-app.directive('bbBannerPreview', require('./BannerPreview.js'));
-app.directive('bbMyCoursesListing', require('./MycoursesListing.js'));
-app.directive('bbMapButton', require('./MapButton.js'));
-app.directive('iframeOnload', require('./iframeonload.js'));
+module.exports = DiningHoursButtonDirective;
+
+
+function DiningHoursButtonDirective() {
+    return {
+        'restrict': 'E',
+        'template': '<md-button ng-click="diningHours.openLink();"><i class="material-icons" style="vertical-align:middle;">local_dining</i> Dining Hours</md-button>',
+        'controllerAs': 'diningHours',
+        'controller': /*@ngInject*/ function () {
+
+            var self = this;
+
+            self.openLink = function (){
+                console.log("Opening link... "+ diningHoursLink);
+                window.open(diningHoursLink);
+            };
+
+        }
+    };
+}
