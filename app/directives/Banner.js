@@ -32,7 +32,7 @@ function BannerDirective() {
     return {
         'restrict': 'E',
         'template': '<center style="margin-bottom: 0px;">\
-                        <h2 ng-bind="banner.greeting" style="margin-bottom:0px;">Better Banner</h2>\
+                        <h2 ng-bind="banner.greeting" style="margin-bottom:0px;"></h2>\
                         <h4 style="margin-top:0px;"><a href="https://my.msstate.edu/web/home-community">Click here to go back to original banner style.</a></h4>\
                     </center>\
                     <div layout-align="space-between center" layout="column" flex style="overflow:auto;margin-top:0px;">\

@@ -33,7 +33,7 @@ module.exports = {
     },
     banner: [
         {
-            name: "Your Class Schedule & Grades",
+            name: "Class Schedule & Grades",
             link: "https://mybanner.msstate.edu/prod/wwskosst.P_SelectTerm"
         },
 		{
@@ -57,18 +57,15 @@ module.exports = {
             link: "https://mybanner.msstate.edu/prod/wwskosms.P_SelTerm"
         },
         {
-            name: "Your CAPP Compliances",
+            name: "CAPP Compliances",
             link: "https://mybanner.msstate.edu/prod/wwskcapp.P_StuSetCappParams"
         },
         {
-            name: "Your Meal Plan",
+            name: "Meal Plan",
             link: "https://mybanner.msstate.edu/prod/wwskmeal.P_DispMealPlan"
         },{
-            name: "Order or Reserve Your Textbooks",
+            name: "Textbooks",
             link: "https://mybanner.msstate.edu/prod/wwskotbo.P_TextbookOrder"
-        },{
-            name: "Accept/Decline Scholarship",
-            link: "https://msstate.academicworks.com"
         }
     ]
 };
