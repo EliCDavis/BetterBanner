@@ -41,16 +41,24 @@ function BannerPreviewDirective() {
                     </div>\
                     <iframe style="border-style: none;"  md-whiteframe="13" ng-show="preview.currentelyOpenedLink" flex src="{{preview.currentelyOpenedLink}}"></iframe>',
         'controllerAs': 'preview',
-        'controller': /*@ngInject*/ function ($sce, $rootScope) {
+        'controller': /*@ngInject*/ function ($element, $sce, $rootScope, PreventBackground) {
 
             var self = this;
 
             self.currentelyOpenedLink = "";
 
-            $rootScope.openLink = function (link){
-                if(link) {
+            self.iframe = $element.find("iframe")[0];
+
+            $rootScope.openLink = function (link) {
+                
+                if (link) {
                     self.currentelyOpenedLink = $sce.trustAsResourceUrl(link);
                 }
+                
+                PreventBackground.onBackoutPrevented(function () {
+                    console.log("Background prevented: ", self.iframe.contentWindow);
+                });
+
             };
         }
     };

@@ -25,3 +25,4 @@
 
 var app = require("angular").module('Better Banner');
 app.service('MyCourses',   require('./Mycourses.js'));
+app.service('PreventBackground',   require('./PreventBackground.js'));
