@@ -22,4 +22,4 @@
  * THE SOFTWARE.
  */
 
-window.location = "https://my.msstate.edu";
+window.location = "https://mycourses.msstate.edu/";

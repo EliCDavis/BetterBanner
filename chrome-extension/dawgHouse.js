@@ -5,7 +5,7 @@
  */
 
 function goDawgs(tab) {
-	chrome.tabs.create({ url: 'https://my.msstate.edu'}); 
+	chrome.tabs.create({ url: 'https://mycourses.msstate.edu/'}); 
 }
 
 chrome.browserAction.onClicked.addListener(goDawgs);

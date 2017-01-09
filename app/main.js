@@ -25,13 +25,18 @@
 document.body.style.display = "block";
 var ourStylesheetHref = "inject.css";
 var bodyNode = document.getElementsByTagName("BODY")[0];
-var currentStudentName = document.getElementsByClassName("msu-names")[0].innerText;
+var currentStudentName = "";
+
+if (document.getElementsByClassName("msu-names").length > 0) {
+    currentStudentName = document.getElementsByClassName("msu-names")[0].innerText;
+}
 
 // Remove that nasty DOM 
 while (bodyNode.firstChild) {
     bodyNode.removeChild(bodyNode.firstChild);
 }
-
+ 
+ 
 // Remove Those Horrendus Styles Sheets
 Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"],[type="text/css"]'), function (element) {
     try {
@@ -43,7 +48,7 @@ Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"]
 });
 
 // Now let's add back what we want
-bodyNode.innerHTML = ''+require('../InjectHtmlKey');
+bodyNode.innerHTML = '' + require('../InjectHtmlKey');
 
 // Let's set up the angular app now!
 var angular = require('angular');
@@ -52,7 +57,7 @@ require('angular-material');
 
 var app = angular.module('Better Banner', ['ngMaterial']);
 app.constant("currentStudentData", {
-	name: currentStudentName
+    name: currentStudentName
 });
 
 require('./directives');

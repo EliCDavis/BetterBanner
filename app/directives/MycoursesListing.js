@@ -31,6 +31,7 @@ function MycoursesDirective() {
         'restrict': 'E',
         'template': '<div style="margin-bottom:5px;" layout="row" layout-align="center center">\
                         <md-button style="margin-top:0px;" class="md-primary md-raised" ng-click="myCourses.openMyCoursesSettings()">\
+                            <span ng-if="myCourses.courses.length == 0">Click me to add class shortcuts</span>\
                             <i class="material-icons" style="vertical-align:middle;">settings</i>\
                         </md-button>\
                         <md-button style="margin-top:0px;" class="md-primary md-raised" ng-repeat="link in myCourses.courses" ng-click="openLink(link.url)" ng-bind="link.name"></md-button>\
@@ -47,6 +48,10 @@ function MycoursesDirective() {
             });
             
             self.openMyCoursesSettings = function() {
+
+                window.open('https://my.msstate.edu/web/home-community/classroom','_self');
+
+                return;
                 $mdDialog.show({
                     controller: /*@ngInject*/function($scope, $mdDialog){
                         

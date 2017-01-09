@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "Better Access",
     "short_name": "Better Access",
-    "description": "An easier way to perform school related tasks",
+    "description": "An easier way to perform school related tasks!",
     "background": {
         "scripts": [
             "dawgHouse.js"
@@ -14,7 +14,8 @@
     "content_scripts": [
         {
             "matches": [
-                "https://my.msstate.edu/"
+                "https://my.msstate.edu/",
+                "https://mycourses.msstate.edu/*"
             ],
             "css": [
                 "material.css",
@@ -30,6 +31,26 @@
             ],
             "js": [
                 "forwardToSite.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://my.msstate.edu/web/home-community"
+            ],
+            "js": [
+                "wrong_page_notify.js"
+            ]
+        },
+        {
+            "matches": [
+                "https://my.msstate.edu/web/home-community/classroom"
+            ],
+            "js": [
+                "classroom_main.js"
+            ],
+            "css": [
+                "bootstrap.min.css",
+                "inject.css"
             ]
         }
     ],
