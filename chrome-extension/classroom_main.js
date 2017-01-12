@@ -1,5 +1,3 @@
-
-
 var tableBody = document.getElementById('coursesTable').getElementsByTagName('TBODY')[0];
 
 var foundClasses = [];
@@ -26,13 +24,12 @@ while (bodyNode.firstChild) {
 var ourStylesheetHref = "inject.css";
 
 // Remove Those Horrendus Styles Sheets
-Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"],[type="text/css"]'), function (element) {
+Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"],[type="text/css"]'), function(element) {
     try {
         if (ourStylesheetHref !== element.href) {
             element.parentNode.removeChild(element);
         }
-    } catch (err) {
-    }
+    } catch (err) {}
 });
 
 bodyNode.innerHTML = "\n    <div class=\"container\">\n        \n        <br>\n\n        <div class=\"jumbotron\">\n            <h1>Edit Class Shortcuts</h1>\n            <p>Edit classes shortcuts at home of better banner by cilcking on the buttons beside the class name.</p><p>This used to work all in one page until MSU started blocking iframe between my.msstate and mycourses.msstate origins :(</p>\n            <p><a class=\"btn btn-primary btn-lg\" href=\"#\" role=\"button\" onclick=\"window.open('https://mycourses.msstate.edu','_self')\">Back to Main Page</a></p>\n        </div>\n\n        <table class=\"table table-striped\">\n            <thead>\n                <tr>\n                    <th>Class Name</th>\n                    <th>Term</th>\n                </tr>\n            </thead>\n            <tbody  id=\"newTable\">\n            </tbody>\n        </table>\n\n        <h3>Don't make fun of me using bootstrap I realized this was broken at 3am before school starts. This is a 2 hour fix until I think of a better solution</h3>\n        <h4>All because the schools blocking iframe access to break my Extension (which is breaking parts of their own site). But they forget I can inject my code wherever.</h4>\n    \n    </div>\n";
@@ -45,7 +42,8 @@ function addClass(name, url, selected) {
         }
     }
     selected.push({
-        name: name, url: url
+        name: name,
+        url: url
     });
     updateStorage(selected);
 }
@@ -62,10 +60,10 @@ function removeClass(name, url, selected) {
 }
 
 function updateStorage(classes) {
-    chrome.storage.sync.set({ 'MyCourses': classes }, function () {
+    chrome.storage.sync.set({ 'MyCourses': classes }, function() {
         console.log('Settings saved');
 
-        chrome.storage.sync.get('MyCourses', function (classes) {
+        chrome.storage.sync.get('MyCourses', function(classes) {
             console.log('Settings loaded', classes);
             setClasses(foundClasses, classes.MyCourses);
         });
@@ -75,9 +73,11 @@ function updateStorage(classes) {
 
 function setClasses(classes, selected) {
 
+    selected = selected || [];
+
     document.getElementById('newTable').innerHTML = '';
 
-    classes.forEach(function (schoolClass) {
+    classes.forEach(function(schoolClass) {
 
         var added = false;
         for (var i = 0; i < selected.length; i++) {
@@ -88,9 +88,9 @@ function setClasses(classes, selected) {
 
         var row = document.createElement("TR");
 
-        row.innerHTML += '\n        <tr>\n            <td>' + schoolClass.name + '</td>\n            <td>' + schoolClass.term + '</td>\n            <td>\n                <button\n                    class="btn btn-' + (added ? 'warning' : 'success') + '">\n                    ' + (added ? 'Remove from' : 'Add to') + ' Homescreen\n                </button>\n            </td>\n        </tr>\n    ';
+        row.innerHTML += '\n        <tr>\n            <td><a href="' + schoolClass.url + '">' + schoolClass.name + '</a></td>\n            <td>' + schoolClass.term + '</td>\n            <td>\n                <button\n                    class="btn btn-' + (added ? 'warning' : 'success') + '">\n                    ' + (added ? 'Remove from' : 'Add to') + ' Homescreen\n                </button>\n            </td>\n        </tr>\n    ';
 
-        row.children[2].children[0].onclick = function () {
+        row.children[2].children[0].onclick = function() {
             if (added) {
                 removeClass(schoolClass.name, schoolClass.url, selected);
             } else {
@@ -104,7 +104,7 @@ function setClasses(classes, selected) {
 
 }
 
-chrome.storage.sync.get('MyCourses', function (classes) {
+chrome.storage.sync.get('MyCourses', function(classes) {
     console.log('Settings loaded', classes);
     setClasses(foundClasses, classes.MyCourses);
 });

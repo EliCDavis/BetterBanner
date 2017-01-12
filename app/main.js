@@ -29,22 +29,24 @@ var currentStudentName = "";
 
 if (document.getElementsByClassName("msu-names").length > 0) {
     currentStudentName = document.getElementsByClassName("msu-names")[0].innerText;
+} else {
+    currentStudentName = document.getElementById('global-nav-link').innerText.replace(/[0-9]/g, '');;
 }
+
 
 // Remove that nasty DOM 
 while (bodyNode.firstChild) {
     bodyNode.removeChild(bodyNode.firstChild);
 }
- 
- 
+
+
 // Remove Those Horrendus Styles Sheets
-Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"],[type="text/css"]'), function (element) {
+Array.prototype.forEach.call(document.querySelectorAll('style,[rel="stylesheet"],[type="text/css"]'), function(element) {
     try {
         if (ourStylesheetHref !== element.href) {
             element.parentNode.removeChild(element);
         }
-    } catch (err) {
-    }
+    } catch (err) {}
 });
 
 // Now let's add back what we want
