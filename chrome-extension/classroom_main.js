@@ -77,25 +77,33 @@ function setClasses(classes, selected) {
 
     document.getElementById('newTable').innerHTML = '';
 
+    selected.forEach(function(selectedClass) {
+        var row = document.createElement("TR");
+
+        row.innerHTML += '<tr><td><a href="' + selectedClass.url + '">' + selectedClass.name + '</a></td><td>Now</td> <td> <button class="btn btn-warning">Remove from Homescreen</button>\n     </td></tr>';
+
+        row.children[2].children[0].onclick = function() {
+            removeClass(selectedClass.name, selectedClass.url, selected);
+        };
+
+        document.getElementById('newTable').appendChild(row);
+    });
+
+    // Display classes we haven't added.
     classes.forEach(function(schoolClass) {
 
-        var added = false;
         for (var i = 0; i < selected.length; i++) {
             if (selected[i].name == schoolClass.name && selected[i].url == schoolClass.url) {
-                added = true;
+                return;
             }
         }
 
         var row = document.createElement("TR");
 
-        row.innerHTML += '\n        <tr>\n            <td><a href="' + schoolClass.url + '">' + schoolClass.name + '</a></td>\n            <td>' + schoolClass.term + '</td>\n            <td>\n                <button\n                    class="btn btn-' + (added ? 'warning' : 'success') + '">\n                    ' + (added ? 'Remove from' : 'Add to') + ' Homescreen\n                </button>\n            </td>\n        </tr>\n    ';
+        row.innerHTML += '<tr><td><a href="' + schoolClass.url + '">' + schoolClass.name + '</a></td><td>' + schoolClass.term + '</td> <td> <button class="btn btn-success">Add to Homescreen</button></td></tr>';
 
         row.children[2].children[0].onclick = function() {
-            if (added) {
-                removeClass(schoolClass.name, schoolClass.url, selected);
-            } else {
-                addClass(schoolClass.name, schoolClass.url, selected);
-            }
+            addClass(schoolClass.name, schoolClass.url, selected);
         };
 
         document.getElementById('newTable').appendChild(row);
